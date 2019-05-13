@@ -1,0 +1,55 @@
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#add_item .table_preview {
+  width: 600px;
+  height: 600px;
+}
+
+#add_item .gabarit {
+  width: 20%;
+  background-color: rebeccapurple;
+}
+
+#add_item .zone {
+  background-color: grey;
+  /*border-style: dashed;*/
+}
+
+#add_item .zone img {
+  /*width: 100%;*/
+  height: 100%;
+}
+
+#add_item .w100 {
+  width: 100%;
+}
+
+#add_item .w50 {
+  width: 50%;
+}
+
+#add_item .h50 {
+  height: 50%;
+}
+
+#add_item .h25 {
+  height: 25%;
+}
+
+#add_item .left {
+  float: left;
+}
+
+.edit_item .table_preview {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.edit_item .zones img {
+  width: 100%;
+}
+

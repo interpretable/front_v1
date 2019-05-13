@@ -1,0 +1,77 @@
+
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+//Materialize
+//@import "node_modules/materialize-css/sass/materialize";
+//@import "~materialize-css/sass/materialize.scss";
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+// TABLE PREVIEW 
+#add_item {
+
+  .table_preview {
+    width: 600px;
+    height: 600px;
+  }
+  
+  .gabarit {
+    width: 20%;
+    background-color: rebeccapurple;
+  }
+  
+  .zone {
+    background-color: grey;
+    /*border-style: dashed;*/
+    
+  }
+  
+  .zone img {
+    /*width: 100%;*/
+    height: 100%;
+  }
+  
+  .w100 {
+    width: 100%;
+  }
+  .w50 {
+    width: 50%;
+  }
+  
+  .h50 {
+    height: 50%;
+  }
+  
+  .h25 {
+    height: 25%;
+  }
+  .left {
+    float: left;
+  }
+
+}
+
+
+.edit_item {
+
+  .table_preview {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .zones img {
+    width: 100%
+  }
+}
