@@ -115,43 +115,69 @@ class ItemController extends Controller
         $client = new Client(); //GuzzleHttp\Client
 
         // Maps values from the form-data
-        $result = $client->post(env('API_URL').'api/item/'.$id, [
-           'multipart' => [
-                [
-                    'name' => 'name',
-                    'contents' => $request->name,
-                ],
-                [
-                    'name' => 'card_id',
-                    'contents' => $request->card_id
-                ],
-                [
-                    'name' => 'thematic_id',
-                    'contents' => $request->thematic_id
-                ],
-                /*[
-                    'name'     => 'zone1',
-                    'contents' => fopen( $request->file('zone1')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone1')->getClientOriginalName()
-                ],
-                [
-                    'name'     => 'zone2',
-                    'contents' => fopen( $request->file('zone2')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone2')->getClientOriginalName()
-
-                ],
-                [
-                    'name'     => 'zone3',
-                    'contents' => fopen( $request->file('zone3')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone3')->getClientOriginalName()
-                ],
-                [
-                    'name'     => 'zone4',
-                    'contents' => fopen( $request->file('zone4')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone4')->getClientOriginalName()
-                ],*/
-           ]
-        ]);
+        if($request->file('card_picture')){
+            $result = $client->post(env('API_URL').'api/item/'.$id, [
+                'multipart' => [
+                        [
+                            'name' => 'name',
+                            'contents' => $request->name,
+                        ],
+                        [
+                            'name' => 'card_id',
+                            'contents' => $request->card_id
+                        ],
+                        [
+                            'name' => 'thematic_id',
+                            'contents' => $request->thematic_id
+                        ],
+                        [
+                            'name' => 'card_picture',
+                            'contents' => fopen( $request->file('card_picture')->getPathname(), 'r' ),
+                            'filename' => $request->file('card_picture')->getClientOriginalName()
+                        ]
+                ]
+            ]);
+        }
+        else {
+            $result = $client->post(env('API_URL').'api/item/'.$id, [
+                'multipart' => [
+                     [
+                         'name' => 'name',
+                         'contents' => $request->name,
+                     ],
+                     [
+                         'name' => 'card_id',
+                         'contents' => $request->card_id
+                     ],
+                     [
+                         'name' => 'thematic_id',
+                         'contents' => $request->thematic_id
+                     ],
+                     /*[
+                         'name'     => 'zone1',
+                         'contents' => fopen( $request->file('zone1')->getPathname(), 'r' ),
+                         'filename' => $request->file('zone1')->getClientOriginalName()
+                     ],
+                     [
+                         'name'     => 'zone2',
+                         'contents' => fopen( $request->file('zone2')->getPathname(), 'r' ),
+                         'filename' => $request->file('zone2')->getClientOriginalName()
+     
+                     ],
+                     [
+                         'name'     => 'zone3',
+                         'contents' => fopen( $request->file('zone3')->getPathname(), 'r' ),
+                         'filename' => $request->file('zone3')->getClientOriginalName()
+                     ],
+                     [
+                         'name'     => 'zone4',
+                         'contents' => fopen( $request->file('zone4')->getPathname(), 'r' ),
+                         'filename' => $request->file('zone4')->getClientOriginalName()
+                     ],*/
+                ]
+             ]);
+        }
+        
         return redirect('scenarios');
     }
 

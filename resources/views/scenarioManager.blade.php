@@ -57,6 +57,15 @@
                             {{Form::token()}}
 
                             <div class="row">
+                            <div class="file-field input-field col l6 m12 s12">
+                                <div class="btn">
+                                    {{Form::label('media', 'Card_picture', 'class="white-text"')}}
+                                    {{Form::file('card_picture')}}  
+                                </div>
+                                <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                </div>
+                            </div>
                                 <div class="input-field col l6 m12 s12">
                                 {{Form::label('name', 'Nom de la carte')}}
                                 {{Form::text('name', $item->name)}}
