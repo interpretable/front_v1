@@ -38,31 +38,9 @@ class ItemController extends Controller
     public function createItem(Request $request)
     {
 
-        $client = new Client(); //GuzzleHttp\Client
-
-        
-        
-        /*function zone($zone, $request){
-            if($request->file($zone)) {
-                $zone = [ 
-                    'name'     => $zone,
-                    'contents' => fopen( $request->file($zone)->getPathname(), 'r' ),
-                    'filename' => $request->file($zone)->getClientOriginalName()];
-                    return $zone;
-            }
-            return [
-                'name' => '',
-                'contents' => ''
-            ];
-            
-        }
-
-        $zone1 = zone('zone1', $request);
-        $zone2 = zone('zone2', $request);
-        $zone3 = zone('zone3', $request);
-        $zone4 = zone('zone4', $request);*/
-        
-
+        //GuzzleHttp\Client
+        $client = new Client(); 
+ 
         // Maps values from the form-data
         $result = $client->post(env('API_URL').'api/item/new', [
            'multipart' => [
@@ -77,31 +55,36 @@ class ItemController extends Controller
 
                 [
                     'name'     => 'card_picture',
-                    'contents' => fopen( $request->file('zone1')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone1')->getClientOriginalName()
+                    'contents' => fopen( $request->file('card_picture')->getPathname(), 'r' ),
+                    'filename' => $request->file('card_picture')->getClientOriginalName()
                 ],
-
                 [
+      
                     'name'     => 'zone1',
-                    'contents' => fopen( $request->file('zone1')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone1')->getClientOriginalName()
+                    'contents' => ($request->file('zone1')) ? fopen( $request->file('zone1')->getPathname(), 'r' ) : '',
+                    'filename' => ($request->file('zone1')) ? $request->file('zone1')->getClientOriginalName() : ''
                 ],
                 [
+      
                     'name'     => 'zone2',
-                    'contents' => fopen( $request->file('zone2')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone2')->getClientOriginalName()
-
+                    'contents' => ($request->file('zone2')) ? fopen( $request->file('zone2')->getPathname(), 'r' ) : '',
+                    'filename' => ($request->file('zone2')) ? $request->file('zone2')->getClientOriginalName() : ''
                 ],
                 [
+      
                     'name'     => 'zone3',
-                    'contents' => fopen( $request->file('zone3')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone3')->getClientOriginalName()
+                    'contents' => ($request->file('zone3')) ? fopen( $request->file('zone3')->getPathname(), 'r' ) : '',
+                    'filename' => ($request->file('zone3')) ? $request->file('zone3')->getClientOriginalName() : ''
                 ],
                 [
+      
                     'name'     => 'zone4',
-                    'contents' => fopen( $request->file('zone4')->getPathname(), 'r' ),
-                    'filename' => $request->file('zone4')->getClientOriginalName()
+                    'contents' => ($request->file('zone4')) ? fopen( $request->file('zone4')->getPathname(), 'r' ) : '',
+                    'filename' => ($request->file('zone4')) ? $request->file('zone4')->getClientOriginalName() : ''
                 ],
+
+                
+
            ]
         ]);
         return redirect('scenarios');
@@ -113,6 +96,7 @@ class ItemController extends Controller
     {
 
         $client = new Client(); //GuzzleHttp\Client
+
 
         // Maps values from the form-data
         if($request->file('card_picture')){
@@ -153,27 +137,6 @@ class ItemController extends Controller
                          'name' => 'thematic_id',
                          'contents' => $request->thematic_id
                      ],
-                     /*[
-                         'name'     => 'zone1',
-                         'contents' => fopen( $request->file('zone1')->getPathname(), 'r' ),
-                         'filename' => $request->file('zone1')->getClientOriginalName()
-                     ],
-                     [
-                         'name'     => 'zone2',
-                         'contents' => fopen( $request->file('zone2')->getPathname(), 'r' ),
-                         'filename' => $request->file('zone2')->getClientOriginalName()
-     
-                     ],
-                     [
-                         'name'     => 'zone3',
-                         'contents' => fopen( $request->file('zone3')->getPathname(), 'r' ),
-                         'filename' => $request->file('zone3')->getClientOriginalName()
-                     ],
-                     [
-                         'name'     => 'zone4',
-                         'contents' => fopen( $request->file('zone4')->getPathname(), 'r' ),
-                         'filename' => $request->file('zone4')->getClientOriginalName()
-                     ],*/
                 ]
              ]);
         }
