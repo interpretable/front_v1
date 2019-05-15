@@ -46,7 +46,8 @@
 .edit_item .table_preview {
   width: 300px;
   height: 300px;
-  overflow: hidden;
+  display: table;
+  background-color: black;
 }
 
 .edit_item .zones img {
