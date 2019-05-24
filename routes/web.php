@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ItemController@listItems');
+
 
 // Gets all the items from API
 Route::get('/scenarios', 'ItemController@listItems');
@@ -30,3 +29,9 @@ Route::get('/scenarios/delete/{id}', 'ItemController@deleteItem');
 
 // Gets Table current State
 Route::get('/table', 'TableController@getCurrentState');
+
+// Gets Table current State
+Route::get('/machines', 'MachineController@listMachines');
+
+// Gets Table current State
+Route::get('/machine/{id}', 'MachineController@listMachine');

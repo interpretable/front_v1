@@ -21,9 +21,9 @@
         <nav>
             <div class="nav-wrapper blue">
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="table">Table</a></li>
+                    <!--<li><a href="table">Table</a></li>-->
                     <li><a href="scenarios">Scénarios</a></li>
-                    <li><a href="#">Mise à jour</a></li>
+                    <li><a href="machines">Machines</a></li>
                 </ul>
                 <a href="{{ url('/') }}" class="brand-logo"></a>
             </div>
