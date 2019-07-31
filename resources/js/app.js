@@ -1,3 +1,5 @@
+window._ = require('chart.js');
+
 $(document).ready(function () {
     // Init materialize Js features
     $('.collapsible').collapsible();
